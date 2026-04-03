@@ -1,3 +1,3 @@
 # Formacao AWS 2026 
-#### Laboratorios: Abril / Maio
+#### Laboratorios: Abril (ok)
 #### Laboratorios: Maio
