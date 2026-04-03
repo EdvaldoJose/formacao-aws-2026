@@ -1,0 +1,1 @@
+ssh -o "IdentitiesOnly=yes" -i SUA_PRIVATE_KEY ec2-user@127.0.0.1 -p 8222

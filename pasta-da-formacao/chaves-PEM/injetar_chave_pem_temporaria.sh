@@ -1,0 +1,1 @@
+aws ec2-instance-connect send-ssh-public-key --instance-id ID_DA_INSTANCIA --instance-os-user ec2-user --ssh-public-key file://SUA_PUBLIC_KEY.pub

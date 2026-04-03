@@ -1,0 +1,58 @@
+Programacao da Semana 08/04 a 14/04
+------------------------------------
+1-> Segunda-feira: Java
+2-> Terca-feira: Java
+3-> Quarta-feira: Java
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+4-> Quinta-feira: AWS Cloud
+5-> Sexta-feira: AWS Cloud
+6-> Sabado: AWS Cloud
+7-> Domingo: AWS Cloud 
+------------------------------------
+Seguir o Cronograma da semana:
+- Criar nova conta seguir o cronograma: ATENCAO:
+- Revisao o conteudo ATUAL e da VPC do mes de Marco. [Quinta]
+- Iniciar o Laborario mes de Abril. [Sexta]
+- Quinta-feira Hackone Live no Youtube na quinta-feira, dia 11 de abril, às 20h.
+- Proximo encontro da Formacao AWS: Dia 22/04 segunda-feira 20h.
+- ...
+----------------------------------------------------------------------------------
+- ATENCAO: 
+  -> Antes de encerrar a conta: Cria a nova conta e fazer as transferencias.
+  -> Assistir o video Cadastrando uma Conta na AWS
+  -> Criar as transferencias das regras e autorizacoes do novo usuario.
+     - Criar o controle de aviso de custo
+     - Criar a auteticacao de dois fatores
+     - Criar os Security Group
+     - Criar as Roles
+     - Criar as Polyces
+     - Criar os Users
+     - Criar o  --profile bia
+     - Criar o Iam group SAM_PERMISSION
+     - Criar as VPC: aws-modulo-1-vpc-visual / aws-modulo-1-vpc-manual
+     - Outros
+------------------------------------------------------------------------------------------------------------------------------------------------------
+-> Matar todos os processos criados da conta antiga Desalocando tudo e CANCELA conta.
+-> Abrir as Contas: Login: e-mail + Senha: Masterkey#101624 + Authenticator Code MFA.
+----Nome-da-conta---   ------Usuario-root------   ---Cartao---    ----Data-cadastro-----------
+- aws-edvaldojose-c1-2024 - edvaldojose003@gmail.com - cartao edv -- Abr/2023 - Dez/2024 - [c1] [free-tier-vencida]*
+- aws-edvaldojose-c2-2025 - edvaldojose.aws@gmail.com - cartao mae --- Jun/2024 - Jun/2025 - [c2] [conta-ativa]
+- aws-edvaldojose-c3-2026 - edvaldojose.aws+c3@gmail.com - cartao mae --- Mar/2026 - Mar/2026 - [+c3] [conta-ativa]
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+- aws-edvaldojose-c... - edvaldojsnet@gmail.com - cartao mae  --- Abr/2025-Abr/2026-[ ]
+- aws-edvaldojose-c... - edvaldojose.dev@outlook.com - cartao mae - Abr/2026-Abr/2027-[ ]
+- aws-edvaldojose-c... - edvaldojose.dev@gmail.com - cartao mae --- Abr/2024-[conta-cancelada]*
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Exemplo de um modelo para uma nova conta na AWS, para ter uma franquia anual de 750hs mês. (seuemail+c(x)
+---------------Usuario-root-------------		---------Nome-da-conta----	---Cartao---    ----Data-cadast/venc----
+=====================================================================================
+edvaldojose.aws+c3@gmail.com 		 aws-edvaldojose-c3-2026	      	edv		   mm-aaaa / mm-aaaa
+=====================================================================================
+Contas ativas da AWS:
+=> [ aws-edvaldojose-c1-2024 ] - Com créditos no valor de $300 até agosto/2025.
+=> [ aws-edvaldojose-c2-2025 ] - Com créditos de 750hs da free tier.
+=> [ aws-edvaldojose-c3-2026 ] - Com créditos de 200 U$ da free tier.
+------------------------------------------------------------------------------------------------------------------
+Contas novas usando a nova Freetier:
+> [ aws-edvaldojose-c3-2026 ] - edvaldojose.aws+c3@gmail.com
+

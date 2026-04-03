@@ -1,0 +1,1 @@
+aws ssm start-session --target ID_DO_PORTEIRO --document-name AWS-StartPortForwardingSessionToRemoteHost --parameters '{"host":["IP_DA_SUA_INSTANCI_PRIVADA"],"portNumber":["22"],"localPortNumber":["8222"]}'
