@@ -1,5 +1,5 @@
 # Curso Formacao AWS 2026.
-### Laboratorio: Abril ( X ) > Laboratorio: Maio (...)
+### Laboratorio: Abril (X) > Laboratorio: Maio (...)
 ### Laboratorio: Junho (...) > Laboratorio: Julho (...) 
 ### Laboratorio: Agosto (...) > Laboratorio: Setembro (...) 
 ### Laboratorio: Outubro (...) > Laboratorio: Novembro (...) 
