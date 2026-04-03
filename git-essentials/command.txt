@@ -1,0 +1,15 @@
+Primeiro commando:
+> git add
+> git commit -m
+> git init
+> git push
+> git pull
+> git clone
+> git checkout -b
+> git checkout -M
+> git checkout .
+> git stash
+> git stash apply
+> git revert HEAD
+> git reset --hard HEAD
+> ./loop.bash atualiza as brachs
