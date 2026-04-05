@@ -138,3 +138,17 @@ git push
 | prod → main   | PR   |
 | validação     | CI   |
 | deploy futuro | main |
+
+💣 REGRA DE OURO (GRAVA ISSO)
+rebase ativo → NÃO muda de branch
+rebase ativo → NÃO faz push
+rebase ativo → resolve e continua
+
+🔥 FLUXO CORRETO SEMPRE
+Antes de qualquer push:
+git pull
+git push
+
+⚠️ NÃO FAÇA ISSO (PERIGO)
+git push --force
+
