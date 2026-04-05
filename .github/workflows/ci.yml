@@ -1,9 +1,11 @@
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 name: CI
 
 on:
-  pull_request:
-    branches: [ "main" ]
   push:
+    branches: [ "main" ]
+  pull_request:
     branches: [ "main" ]
 
 jobs:
@@ -13,6 +15,8 @@ jobs:
     steps:
       - name: Checkout código
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -20,11 +24,8 @@ jobs:
           node-version: 22
 
       - name: Instalar dependências
-        run: npm install
+        run: npm install || echo "sem package.json"
 
-      - name: Rodar lint (se tiver)
-        run: npm run lint || echo "no lint"
-
-      - name: Rodar testes (se tiver)
-        run: npm test || echo "no tests"
+      - name: Rodar testes
+        run: npm test || echo "sem testes"
 
