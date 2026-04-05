@@ -138,3 +138,8 @@ git push
 | prod → main   | PR   |
 | validação     | CI   |
 | deploy futuro | main |
+<<<<<<< HEAD
+seu conteúdo
+=======
+conteúdo remoto
+>>>>>>> 

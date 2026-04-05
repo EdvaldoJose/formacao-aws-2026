@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 name: CI
@@ -7,6 +8,15 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+=======
+name: CI
+
+on:
+  pull_request:
+    branches: [ "main" ]
+  push:
+    branches: [ "main" ]
+>>>>>>> 01385a2 (ci: adiciona pipeline CI)
 
 jobs:
   build:
@@ -15,8 +25,11 @@ jobs:
     steps:
       - name: Checkout código
         uses: actions/checkout@v4
+<<<<<<< HEAD
         with:
           fetch-depth: 0
+=======
+>>>>>>> 01385a2 (ci: adiciona pipeline CI)
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -24,8 +37,18 @@ jobs:
           node-version: 22
 
       - name: Instalar dependências
+<<<<<<< HEAD
         run: npm install || echo "sem package.json"
 
       - name: Rodar testes
         run: npm test || echo "sem testes"
+=======
+        run: npm install
+
+      - name: Rodar lint (se tiver)
+        run: npm run lint || echo "no lint"
+
+      - name: Rodar testes (se tiver)
+        run: npm test || echo "no tests"
+>>>>>>> 01385a2 (ci: adiciona pipeline CI)
 
