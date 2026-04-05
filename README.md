@@ -49,3 +49,105 @@ main
 > rollback fácil
 > deploy controlado
 > pipeline automático
+
+👉 volta a main pro estado anterior
+git switch main
+git reset --hard origin/main
+
+💣 SITUAÇÃO
+
+Você já fez:
+✔ alterou na developer
+✔ commitou
+✔ deu push
+
+👉 agora quer subir isso até a main
+
+🚀 PASSO A PASSO CORRETO
+🔹 1. developer → production
+👉 No GitHub:
+Vai no repo
+Clica em Pull requests
+New Pull Request
+👉 Configura:
+base: production
+compare: developer
+👉 Depois:
+cria PR
+verifica CI (tem que estar verde ✅)
+clica em Merge
+🔥 Resultado:
+
+👉 agora production tem as mudanças da developer
+
+🔹 2. production → main
+
+Repete o processo:
+
+👉 New Pull Request:
+base: main
+compare: production
+👉 Depois:
+verifica CI
+merge
+🔥 Resultado final:
+
+👉 main atualizada com segurança 🚀
+
+⚠️ IMPORTANTE
+
+👉 você NÃO faz isso:
+
+git checkout production
+git merge developer
+
+👉 isso quebra o fluxo que você acabou de montar
+
+🧠 FLUXO VISUAL
+developer
+   ↓ PR
+production
+   ↓ PR
+main 🚀
+💣 DICA (EVITA PROBLEMA)
+
+Antes de abrir PR:
+
+git switch developer
+git pull
+
+👉 garante que está atualizado
+
+⚡ SE DER CONFLITO
+
+GitHub vai avisar:
+👉 “This branch has conflicts”
+
+Você resolve assim:
+git switch production
+git pull
+git merge developer
+# resolve conflito
+git add .
+git commit -m "fix: resolve conflito"
+git push
+
+| Etapa         | Ação |
+| ------------- | ---- |
+| dev → prod    | PR   |
+| prod → main   | PR   |
+| validação     | CI   |
+| deploy futuro | main |
+
+💣 REGRA DE OURO (GRAVA ISSO)
+rebase ativo → NÃO muda de branch
+rebase ativo → NÃO faz push
+rebase ativo → resolve e continua
+
+🔥 FLUXO CORRETO SEMPRE
+Antes de qualquer push:
+git pull
+git push
+
+⚠️ NÃO FAÇA ISSO (PERIGO)
+git push --force
