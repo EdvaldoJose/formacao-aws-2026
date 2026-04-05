@@ -26,5 +26,3 @@ jobs:
 
       - name: Rodar testes
         run: npm test || echo "sem testes"
-
-
