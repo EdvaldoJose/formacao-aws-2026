@@ -151,3 +151,4 @@ git push
 
 ⚠️ NÃO FAÇA ISSO (PERIGO)
 git push --force
+
