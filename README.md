@@ -369,7 +369,7 @@ gh pr create \
   --head production \
   --title "release: production → main" \
   --body "Promovendo código validado para produção"
-
+  
 🚀 Direto: você deve estar na própria feature/* quando rodar esse script ✅
 
 💣 RESPOSTA
@@ -490,3 +490,4 @@ deploy automático (AWS no teu caso 👀)
 ✔ fluxo limpo
 ✔ PR automático
 ✔ zero dor de cabeca.
+
