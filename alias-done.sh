@@ -1,0 +1,1 @@
+git config --global alias.done '!git push && gh pr create --fill'

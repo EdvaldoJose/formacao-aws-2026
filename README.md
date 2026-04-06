@@ -151,3 +151,188 @@ git push
 
 ⚠️ NÃO FAÇA ISSO (PERIGO)
 git push --force
+
+🚀 CONFIG GLOBAL (FAZ UMA VEZ)
+git config --global pull.rebase false
+git config --global rebase.autoStash true
+git config --global fetch.prune true
+🔥 O QUE ISSO FAZ:
+| Config            | Resultado                   |
+| ----------------- | --------------------------- |
+| pull.rebase false | evita rebase infernal       |
+| autoStash true    | salva alterações automático |
+| fetch.prune true  | limpa branch morta          |
+
+🚀 FLUXO SEM DOR (DE VERDADE)
+🔹 NUNCA MAIS ISSO:
+git pull --rebase ❌
+git rebase manual ❌
+🔹 FAÇA ISSO:
+git add .
+git commit -m "sua mudança"
+git pull
+> ou se esqueceu:
+git stash
+git pull
+git stash pop
+
+🚀 EXTRA NÍVEL EMPRESA
+
+Melhor ainda:
+
+👉 você nem trabalha direto na production
+
+feature → PR → merge → acabou
+
+👉 zero conflito local
+
+🔥 RESUMO
+Problema	Solução
+alteração local	stash ou commit
+pull bloqueado	Git protegendo
+fluxo limpo	PR + commits pequenos
+
+Faz pull + clean + safe automaticamente 😎
+git sync
+
+🔥 VERSÃO MAIS PROFISSIONAL (RECOMENDO)
+Essa aqui é mais robusta:
+git config --global alias.sync '!git stash push -m "auto-sync" && git pull --no-rebase && git stash pop || true'
+
+💣 POR QUE ESSA É MELHOR
+
+✔ evita rebase
+✔ não quebra se não tiver stash
+✔ funciona sempre
+
+🚀 EXTRA: LIMPEZA AUTOMÁTICA
+
+Se quiser nível mais alto:
+💣 POR QUE ESSA É MELHOR
+
+✔ evita rebase
+✔ não quebra se não tiver stash
+✔ funciona sempre
+
+🚀 EXTRA: LIMPEZA AUTOMÁTICA
+
+Se quiser nível mais alto:
+git config --global alias.cleanall '!git fetch --prune && git branch --merged | grep -v "\*" | xargs -r git branch -d'
+
+git sync     # atualiza seguro
+git cleanall # limpa sujeira
+
+💣 VERDADE DIRETA
+Você nunca mais deveria rodar:
+
+git pull
+👉 use: git sync
+
+criar um comando tipo:
+git ship
+que:
+add
+commit
+push
+abre PR automático
+
+💣 PRÉ-REQUISITO
+
+Instala o CLI do GitHub CLI:
+
+sudo apt install gh -y
+
+Depois autentica:
+
+gh auth login
+🚀 1. ALIAS: SHIP (AUTOMAÇÃO TOTAL)
+git config --global alias.ship '!f() { \
+  git add . && \
+  git commit -m "${1:-update}" && \
+  git push && \
+  gh pr create --fill; \
+}; f'
+
+🔥 COMO USAR
+git ship "feat: login api"
+👉 resultado:
+commit criado
+push feito
+PR aberto automático 🚀
+
+🧠 INTELIGENTE
+Se você esquecer a mensagem:
+git ship
+👉 usa: update
+
+🚀 2. ALIAS: SYNC (SEGURANÇA TOTAL)
+
+(se não criou antes)
+
+git config --global alias.sync '!git stash push -m "auto-sync" && git pull --no-rebase && git stash pop || true'
+🚀 3. ALIAS: START (CRIA FEATURE LIMPO)
+git config --global alias.start '!f() { \
+  git checkout developer && \
+  git pull && \
+  git switch -c feature/$1; \
+}; f'
+🔥 USO
+git start login-api
+
+👉 cria:
+
+feature/login-api
+🚀 4. ALIAS: DONE (FINALIZA)
+git config --global alias.done '!git push && gh pr create --fill'
+🧠 FLUXO COMPLETO AGORA
+git start login-api
+# codou...
+
+git ship "feat: login api"
+
+👉 pronto:
+
+PR aberto
+CI rodando
+fluxo profissional
+💣 NÍVEL ABSURDO (OPCIONAL)
+
+Auto PR sempre para developer:
+
+gh pr create --base developer --fill
+
+👉 adapta no alias ship se quiser
+
+🚀 RESULTADO FINAL
+
+Você virou isso:
+
+dev normal: 10 comandos
+você:       1 comando
+🔥 FILOSOFIA
+menos terminal
+mais entrega
+💣 VERDADE FINAL
+
+Isso aqui é exatamente o que times fazem:
+
+scripts internos
+automação de fluxo
+PR automático
+
+🚀 COMO USAR
+git ship "feat: login api"
+
+👉 resultado automático:
+commit ✔
+push ✔
+PR: feature/... → developer ✔
+
+🔥 SHIP AJUSTADO
+git config --global alias.ship '!f() { \
+git add . && \
+git commit -m "${1:-update}" && \
+git push && \
+gh pr create --base developer --head $(git branch --show-current) --fill; \
+}; f'
+
