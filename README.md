@@ -336,3 +336,14 @@ git push && \
 gh pr create --base developer --head $(git branch --show-current) --fill; \
 }; f'
 
+✅ CORRETO base: main compare: production 👉 ou seja: production → main
+
+🧠 REGRA compare = (origem) → base = (destino)
+
+🚀 SEQUÊNCIA FINAL CORRETA feature → developer developer → production production → main ✅
+
+Abrindo um PR via terminal: 🔥 PR VIA TERMINAL (RECOMENDADO) gh pr create
+--base main
+--head production
+--title "release: production → main"
+--body "Promovendo código validado para produção"
