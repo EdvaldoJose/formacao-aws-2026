@@ -335,11 +335,3 @@ git commit -m "${1:-update}" && \
 git push && \
 gh pr create --base developer --head $(git branch --show-current) --fill; \
 }; f'
-
-🚀 O FLUXO CORRETO (SEMPRE)
-feature → developer → production → main
-
-🚀 LIMPEZA FINAL
-Depois do merge completo:
-git branch -d feature/login-api
-git push origin --delete feature/login-api
