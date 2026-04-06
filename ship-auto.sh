@@ -1,32 +1,67 @@
 #!/bin/bash
 
+set -e
+
 BRANCH=$(git branch --show-current)
+
+echo "🚀 Ship iniciado na branch: $BRANCH"
 
 # proteção
 if [[ "$BRANCH" != feature/* ]]; then
-  echo "❌ Use apenas em branch feature/*"
+  echo "❌ Use apenas em feature/*"
   exit 1
 fi
 
-# verifica se há mudanças
+# verifica mudanças
 if git diff --quiet && git diff --staged --quiet; then
   echo "⚠️ Nada para commitar"
   exit 0
 fi
+
+# sync
+echo "🔄 Sincronizando com remoto..."
+git pull --rebase origin "$BRANCH" || { echo "❌ erro no pull"; exit 1; }
+
+# 🔥 VALIDAÇÕES INTELIGENTES
+
+# lint (se existir)
+if npm run | grep -q "lint"; then
+  echo "🧹 Rodando lint..."
+  npm run lint || { echo "❌ erro no lint"; exit 1; }
+else
+  echo "⚠️ lint não configurado — pulando"
+fi
+
+# test (se existir)
+if npm run | grep -q "test"; then
+  echo "🧪 Rodando testes..."
+  npm test || { echo "❌ testes falharam"; exit 1; }
+else
+  echo "⚠️ testes não configurados — pulando"
+fi
+
+# audit (não bloqueante)
+echo "🔐 Verificando vulnerabilidades..."
+npm audit --audit-level=high || echo "⚠️ vulnerabilidades encontradas (não bloqueante)"
 
 # commit
 git add .
 git commit -m "${1:-update}"
 
 # push
-git push
+echo "⬆️ Enviando código..."
+git push || { echo "❌ erro no push"; exit 1; }
 
-# verifica se já existe PR
+# PR
 if gh pr view "$BRANCH" &>/dev/null; then
-  echo "ℹ️ PR já existe para essa branch"
+  echo "ℹ️ PR já existe — atualizado"
 else
+  echo "📬 Criando PR..."
   gh pr create --base developer --head "$BRANCH" --fill
 fi
+
+echo "✅ Ship concluído com sucesso!"
+
 
 # 🚀 COMO USAR
 # ./ship.sh "feat: login api"
