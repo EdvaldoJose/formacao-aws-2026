@@ -1,0 +1,1 @@
+git config --global alias.sync '!git stash push -m "auto-sync" && git pull --no-rebase && git stash pop || true'
