@@ -358,3 +358,68 @@ gh pr create \
   --head production \
   --title "release: production → main" \
   --body "Promovendo código validado para produção"
+
+🚀 Direto: você deve estar na própria feature/* quando rodar esse script ✅
+
+💣 RESPOSTA
+branch atual = feature/login-api
+
+👉 exatamente assim:
+
+git checkout feature/login-api
+./clean-feature.sh
+🚀 POR QUE ISSO FUNCIONA
+
+Seu script pega automaticamente:
+
+BRANCH=$(git branch --show-current)
+
+👉 então ele precisa que você esteja:
+
+dentro da feature que será deletada
+🧠 O QUE ELE FAZ INTERNAMENTE
+detecta a branch atual
+valida se é feature/*
+troca pra developer
+deleta a feature
+
+👉 ou seja:
+
+você começa na feature
+ele termina fora dela
+🚨 SE VOCÊ NÃO ESTIVER NA FEATURE
+
+Exemplo:
+
+git checkout developer
+./clean-feature.sh
+
+👉 resultado:
+
+❌ Você não está em uma feature/*
+
+✔ proteção funcionando
+
+🚀 FLUXO CORRETO COMPLETO
+# terminou a feature
+git checkout feature/login-api
+
+# rodou PR → mergeou
+
+# agora limpa
+./clean-feature.sh
+💣 DICA PROFISSIONAL
+
+Sempre antes de rodar:
+
+git status
+
+👉 só pra garantir que está na branch certa
+
+🧠 MENTALIDADE
+você executa a limpeza de dentro da própria feature
+💥 VERDADE FINAL
+
+Esse detalhe simples evita:
+
+deletar branch errada = caos absoluto
