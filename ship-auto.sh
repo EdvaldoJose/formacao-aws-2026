@@ -36,6 +36,7 @@ echo "📬 PR..."
 gh pr create --base developer --head "$BRANCH" --fill || echo "ℹ️ PR já existe"
 
 echo "✅ Done"
+echo "✅ Ship concluído com sucesso!"
 
 #-----------outra-version---------------------
 
