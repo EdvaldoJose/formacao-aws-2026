@@ -611,3 +611,4 @@ deploy automático (AWS no teu caso 👀)
 ✔ fluxo limpo
 ✔ PR automático
 ✔ zero dor de cabeca.
+
