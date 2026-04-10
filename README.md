@@ -734,7 +734,6 @@ deploy automático (AWS no teu caso 👀)
 
 🚀 Direto: você deve estar na própria feature/* quando rodar esse script ✅
 
-
 💣 RESPOSTA
 branch atual = feature/login-api
 
