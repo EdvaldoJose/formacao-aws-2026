@@ -610,7 +610,6 @@ deploy automático (AWS no teu caso 👀)
 ✔ PR automático
 ✔ zero dor de cabeca.
 
-
 🚀 Direto: você deve estar na própria feature/* quando rodar esse script ✅
 
 💣 RESPOSTA
@@ -733,7 +732,6 @@ deploy automático (AWS no teu caso 👀)
 ✔ zero dor de cabeca.
 
 🚀 Direto: você deve estar na própria feature/* quando rodar esse script ✅
-
 
 💣 RESPOSTA
 branch atual = feature/login-api
